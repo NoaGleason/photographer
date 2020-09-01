@@ -1,6 +1,5 @@
 import serial
 import json
-import subprocess
 import cv2
 
 with open("config.json", "r") as file:
@@ -25,7 +24,7 @@ def set_camera_settings(filename: str, capture: cv2.VideoCapture):
                 capture.set(V4L_TO_CV2_NAMES[parts[1]], int(parts[2]))
 
 
-cap = cv2.VideoCapture(config["camera"])
+cap = cv2.VideoCapture(int(config["camera"]))
 set_camera_settings("camera-settings.txt", cap)
 
 serial_connection = serial.Serial(config["serial"], '115200', parity=serial.PARITY_NONE, stopbits=serial.STOPBITS_ONE)
