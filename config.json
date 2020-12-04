@@ -1,4 +1,4 @@
 {
-  "serial": "COM3",
+  "serial": "/dev/ttyUSB0",
   "camera": 0
 }
